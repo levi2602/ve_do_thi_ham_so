@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vẽ Đồ Thị Hàm Số</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #container {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 20px;
+    }
+    #slider-container, #table-container {
+      margin: 20px;
+    }
+    #chart-container {
+      margin-top: 40px;
+    }
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 8px;
+    }
+    #reset-btn, #add-graph, #add-row {
+      margin-top: 10px;
+      padding: 8px 16px;
+    }
+    input {
+      width: 100px;
+      padding: 5px;
+    }
+    canvas {
+      border: 2px solid black; /* Thêm khung cho mặt phẳng Oxy */
+    }
+  </style>
+</head>
+<body>
+  <h2>Vẽ Đồ Thị Hàm Số</h2>
+
+  <!-- Thanh trượt chỉnh hệ số a -->
+  <div id="slider-container">
+    <label for="a-slider">Phạm vi quan sát:</label> <!-- Đổi thành Phạm vi quan sát -->
+    <input type="range" id="a-slider" min="0.2" max="10" step="0.2" value="1">
+    <span id="a-value">1</span>
+  </div>
+
+  <!-- Mặt phẳng toạ độ -->
+  <div id="chart-container">
+    <canvas id="graph" width="500" height="500"></canvas>
+  </div>
+
+  <!-- Bảng vẽ đồ thị -->
+  <div id="graph-table-container">
+    <h3>Đồ thị hàm số</h3>
+    <table id="graph-table">
+      <thead>
+        <tr>
+          <th>Tên đồ thị</th>
+          <th>Hàm số</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <button id="add-graph">Thêm đồ thị</button>
+  </div>
+
+  <!-- Bảng điểm -->
+  <div id="table-container">
+    <h3>Điểm</h3> <!-- Thêm tiêu đề Điểm bên trên bảng -->
+    <table id="points-table">
+      <thead>
+        <tr>
+          <th>Tên điểm</th>
+          <th>Tọa độ x</th>
+          <th>Tọa độ y</th>
+          <th>Hành động</th> <!-- Cột chứa nút xóa -->
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <button id="add-row">Thêm điểm</button>
+    <button id="reset-btn">Xoá tất cả các điểm</button> <!-- Đổi thành "Xoá tất cả các điểm" -->
+  </div>
+
+  <!-- Nạp file JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
